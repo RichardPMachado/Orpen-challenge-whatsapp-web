@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
@@ -16,6 +16,8 @@ model User {
   nickName  String    @unique
   messages  Message[]
   chat      Chat[]
+
+  @@map("users")
 }
 
 model Message {
@@ -26,13 +28,20 @@ model Message {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
   chat      Chat[]
+
+  @@map("messages")
 }
 
 model Chat {
-  id     Int  @id @default(autoincrement())
   User   User @relation(fields: [userId], references: [id])
   userId Int
 
   Message   Message @relation(fields: [messageId], references: [id])
   messageId Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  @@id([messageId, userId])
+  @@map("chats")
 }
