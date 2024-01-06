@@ -12,21 +12,23 @@ function App() {
         </a>
       </div>
       <h1>Challenge WhatsApp Web</h1>
-      <label htmlFor="login">Usuário</label>
-      <input id="login" type="text" />
-      <label htmlFor="login">senha</label>
-      <input id="login" type="text" />
-      <div className="card">
-        <button type="submit" onClick={(e) => {
-          e.preventDefault()
-          setSuccess('sucesso')
-                  } }>
-          {success}
-        </button>
-        <p>
-           <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
+      <form action="">
+        <label htmlFor="login">Usuário</label>
+        <input id="login" type="text" />
+        <label htmlFor="password">senha</label>
+        <input id="password" type="password" />
+        <div className="card">
+          <button type="submit" onClick={(e) => {
+            e.preventDefault()
+            setSuccess('sucesso')
+          } }>
+            {success}
+          </button>
+          <p>
+            <code>src/App.tsx</code> and save to test HMR
+          </p>
+        </div>
+      </form>
       <p className="read-the-docs">
         Click here if you want Richard to join the team!
       </p>
