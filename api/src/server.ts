@@ -1,12 +1,7 @@
-import express from 'express'
+import app from './app'
 import 'dotenv/config'
 
-const app = express()
 const PORT = process.env.PORT
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
 function serverUp() {
   try {
