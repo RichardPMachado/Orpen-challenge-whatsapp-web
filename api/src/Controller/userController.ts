@@ -7,10 +7,9 @@ export async function getUserById(
   next: NextFunction,
 ) {
   const { id } = req.params
-  console.log(id, 'id')
+  console.log(id, '_RPM')
   try {
     const data = await UserService.getUserById(+id)
-    console.log(data)
     return  res.status(StatusCode.SuccessOK).send(data)
   } catch(error) {
     next(error)
@@ -22,7 +21,7 @@ export async function getAllUser(
   res: Response,
   next: NextFunction,
 ) {
-  
+  //_RPM
   try {
     const data = await UserService.getAllUsers()
     console.log(data)
