@@ -1,13 +1,15 @@
 import { UserModel } from "../Model";
 
 export async function getUserById(id: number) {
-    const a = await UserModel.getUserById(id)
-    if(a){
-      return {status: 200, message: 'requisição feita com sucesso'}
+  // _RPM
+  const data = await UserModel.getUserById(id)
+    if(data){
+      return data
     }
     throw new Error('deu ruim')
 }
 
 export async function getAllUsers() {
+  // _RPM
   return await UserModel.getAllUsers()
 }
