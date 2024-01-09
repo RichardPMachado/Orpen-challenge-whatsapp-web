@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from "express"
 import { userRouter } from "./Routes"
-// import ErrorHandler from ""
+import ErrorHandler from "./Errors/ErrorHandler"
 
 const accessControl: express.RequestHandler = (
   _req: Request,
@@ -25,6 +25,6 @@ app.use(accessControl)
 
 app.use('/user', userRouter)
 
-// app.use(ErrorHandler)
+app.use(ErrorHandler.handle)
 
 export default app
