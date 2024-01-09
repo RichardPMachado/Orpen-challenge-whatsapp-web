@@ -9,7 +9,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "react-router-dom": "^6.21.1"
-  }
+  "dependencies": {}
 }
