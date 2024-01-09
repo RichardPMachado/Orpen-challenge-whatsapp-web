@@ -1,0 +1,49 @@
+version: '3.1'
+
+services:
+  web:
+    container_name: Orpen_Challenge_web
+    build:
+      context: ./web
+    ports:
+      - "5173:5173"
+    working_dir: /web
+    networks:
+      - challenge-app
+    platform: linux/x86_64
+    volumes:
+      - ./web:/web
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:5173"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+  api:
+    container_name: orpen_challenge_api
+    build:
+      context: ./api
+    restart: always
+    ports:
+      - "3000:3000"
+    platform: linux/x86_64
+    working_dir: /api
+    networks:
+      - challenge-app
+    volumes:
+      - ./api:/api
+    command: dev
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3000"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+networks:
+  challenge-app:
+
+volumes:
+  pg-data:

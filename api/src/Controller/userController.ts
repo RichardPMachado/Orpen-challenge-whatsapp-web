@@ -30,3 +30,17 @@ export async function getAllUser(
     next(error)
   }
 }
+
+export async function login(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  // _RPM
+  try {
+    const userInfo = await UserService.login(req.body)
+    res.status(StatusCode.SuccessOK).json(userInfo)
+  } catch (error) {
+    next(error)
+  }
+}
