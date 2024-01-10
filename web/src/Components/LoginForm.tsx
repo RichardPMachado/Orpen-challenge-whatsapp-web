@@ -28,42 +28,58 @@ export default function LoginForm({ tryLogin }: { tryLogin: (
 
   return (
     <form action="">
-      <label htmlFor="login">Usuário</label>
-      <input
-        type="text"
-        placeholder="Digite seu nome de usuário"
-        id="login"
-        value={ userName } 
-        onChange={ (e: ChangeEvent<HTMLInputElement>) => setUserName(e.target.value)}
-      />
-      <label htmlFor="password" className="flex flex-col text-xl">senha</label>
-      <input 
-        type="password"
-        placeholder="Digite sua senha"
-        id="password"
-        value={ password }
-        onChange={ (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-      />
+      <section className=" flex-col justify-between flex items-center">
+        
+        {/* <label 
+          htmlFor="login" 
+          className="text-xl text-slate-400 cursor-pointer"
+        >
+          Usuário
+        </label> */}
+        <input
+          className="m-2 h-12 pl-2 shadow-lg rounded focus:border-2 focus:border-[#C431A3] focus:outline-none hover:border-2 hover:border-[#5D80B4]"
+          type="text"
+          placeholder="Digite seu nome de usuário"
+          id="login"
+          value={ userName } 
+          onChange={ (e: ChangeEvent<HTMLInputElement>) => setUserName(e.target.value)}
+          />
+        {/* <label 
+          htmlFor="password"
+          className="text-xl text-white cursor-pointer"
+        >
+          Senha
+        </label> */}
+        <input 
+          className="m-2 h-12 pl-2 shadow-lg rounded focus:border-2 focus:border-[#C431A3] focus:outline-none hover:border-2 hover:border-[#5D80B4]"
+          type="password"
+          placeholder="Digite sua senha"
+          id="password"
+          value={ password }
+          onChange={ (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+        />
       {
-          (failedLogin) && (
-            <p>
-              {`O endereço de e-mail ou a senha não estão corretos.
-                Por favor, tente novamente.`}
-            </p>
-          )
-      }
-      <div className="card">
+        (failedLogin) && (
+          <p className="m-2">
+            {`O endereço de e-mail ou a senha não estão corretos.
+              Por favor, tente novamente.`}
+          </p>
+        )
+        }
+      <div className="">
         <button 
+          className='m-2 px-10 h-12 rounded font-medium hover:scale-105 transition duration-300 text-white hover:bg-white bg-gradient-to-r from-[#5D80B4] to-[#C431A3]'
           type="submit"
           disabled={ handleButton() }
           onClick={ handleSubmit }
-        >
+          >
           Acessar
         </button>
-        <p>
+        {/* <p>
           <code>src/App.tsx</code> and save to test HMR
-        </p>
+        </p> */}
       </div>
+        </section>
     </form>
   )
 }
