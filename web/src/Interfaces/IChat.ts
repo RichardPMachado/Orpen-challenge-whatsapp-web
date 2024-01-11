@@ -2,7 +2,6 @@ export interface IChat {
   id: number
   authorId: number
   recipientId:number
-  messageId: number
+  message: string
   createdAt: string
-  updatedAt: string
 }
