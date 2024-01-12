@@ -1,9 +1,11 @@
 {
-  "name": "Orpen-challenge-whatsapp-web",
+  "name": "orpen-challenge-whatsapp-web",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "docker:up": "docker compose up -d --build ",
+    "docker:down": "docker compose down -v ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
