@@ -11,7 +11,7 @@ export default function Login() {
 
   const tryLogin = async (nickName: string, password: string): Promise<void> => {
     // _RPM
-    const { token, expiresIn, id } = await requestLogin(
+    const { token, expiresIn, id, firstName } = await requestLogin(
       '/user/login',
       { nickName, password },
     );
@@ -20,7 +20,7 @@ export default function Login() {
       token,
       expiresIn,
       tokenType: 'Bearer',
-      authState: { id },
+      authState: { id, firstName },
     })) {
       setIsLogged(true)
     }
@@ -48,9 +48,9 @@ export default function Login() {
             </a>
           </div>
           <div className='p-5'>
-            <h1 className='flex justify-center font-extrabold text-6xl text-[#5D80B4]'>Challenge</h1>
-            <h2 className='flex justify-center font-extrabold text-6xl text-[#7727B3]'>WhatsApp</h2>
-            <h2 className='flex justify-center font-extrabold text-6xl text-[#bb29af]'>Web</h2>
+            <h1 className='flex justify-center font-extrabold text-6xl text-[#5D80B4] transition duration-300 hover:scale-105'>Challenge</h1>
+            <h2 className='flex justify-center font-extrabold text-6xl text-[#7727B3] transition duration-300 hover:scale-105'>WhatsApp</h2>
+            <h2 className='flex justify-center font-extrabold text-6xl text-[#bb29af] transition duration-300 hover:scale-105'>Web</h2>
           </div>
           {/* <h1 className='mb-10 font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#5D80B4] to-[#C431A3]'>Challenge WhatsApp Web</h1> */}
           { isLogged && <Navigate to="/home" replace />}
