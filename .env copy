@@ -5,4 +5,5 @@ POSTGRES_DB=challenge-project
 POSTGRES_USER=richard
 POSTGRES_PASSWORD=admin
 
+
 DATABASE_URL="postgresql://richard:admin@localhost:5432/challenge-project?schema=public"

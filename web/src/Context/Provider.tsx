@@ -1,9 +1,17 @@
-import { useMemo } from 'react';
-import Context from './Context';
+import {ReactNode, useMemo, useState } from 'react'
+import Context from './Context'
 
-function Provider({ children }:{ children: React.ReactNode }) {
 
-  const contexto = useMemo(() => ({}),[])
+
+const Provider = ({ children }: {children: ReactNode}) => {
+  const [isChat, setIsChat] =useState<boolean>(false)
+  
+
+  const contexto = useMemo(() => ({
+    isChat, 
+    setIsChat
+
+  }),[isChat,setIsChat])
   return (
     <Context.Provider value={contexto}>
       {children}

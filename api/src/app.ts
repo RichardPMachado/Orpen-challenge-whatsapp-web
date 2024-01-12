@@ -1,5 +1,5 @@
 import express, { NextFunction, Request, Response } from "express"
-import { userRouter } from "./Routes"
+import { chatRouter, userRouter } from "./Routes"
 import ErrorHandler from "./Errors/ErrorHandler"
 
 const accessControl: express.RequestHandler = (
@@ -24,6 +24,7 @@ app.use(express.json())
 app.use(accessControl)
 
 app.use('/user', userRouter)
+app.use('/chat', chatRouter)
 
 app.use(ErrorHandler.handle)
 
