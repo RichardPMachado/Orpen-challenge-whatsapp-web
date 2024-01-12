@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
+    "prisma:up": "npx prisma generate && npx prisma migrate dev && npx prisma db seed",
     "prisma:migrate": "npx prisma migrate dev",
     "prisma:generate": "npx prisma generate",
     "prisma:studio": "npx prisma studio",
-    "prisma:db-seed": "npx prisma db seed"
+    "prisma:db-seed": "npx prisma db seed",
+    "prisma:db-reset": "npx prisma migrate reset & npx prisma db seed"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
