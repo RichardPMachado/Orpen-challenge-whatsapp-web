@@ -16,6 +16,21 @@ export async function getUserById(
   }
 }
 
+export async function getOtherUserById(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  const { id } = req.params
+  console.log(id, '_RPM')
+  try {
+    const data = await UserService.getUserById(+id)
+    return  res.status(StatusCode.SuccessOK).send(data)
+  } catch(error) {
+    next(error)
+  }
+}
+
 export async function getAllUser(
   _req: Request,
   res: Response,
