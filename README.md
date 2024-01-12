@@ -2,32 +2,68 @@
 
 ## Inicialização do Projeto
 
-Para inicializar o projeto, utilize o seguinte comando:
 
-```bash
-npm run build:project
+Para inicializar o projeto, após fazer o clone dele, faça configuração do Ambiente
 
-Configuração do Ambiente
-Certifique-se de possuir um arquivo chamado .env.copy e, em seguida, copie-o para um novo arquivo denominado .env:
+Certifique-se de possuir um arquivo chamado .env.copy e, em seguida, renomeie-o para .env
+tanto na pasta raiz, quanto na pasta api/
 
-cp .env.copy .env
 
 Configuração do Banco de Dados
 Construa o Docker para o banco de dados PostgreSQL:
 
+
+
+```bash 
+#apos de ter certeza que renomeou os arquivos siga o comando abaixo na pasta raiz
 npm run docker:up
+```
 
-Subir o Prisma
-Acesse o container da API para iniciar o Prisma:
+Configurar o Prisma
+Acesse a pasta API para iniciar o Prisma:
 
-# Substitua <nome_do_container> pelo nome real do seu container
-docker exec -it <nome_do_container> bash
+```bash
+cd api/
+```
 
-Dentro do container, execute os comandos para iniciar o Prisma:
+```
+  npx prisma generate
+  npx prisma migrate dev
+  npx prisma db seed
+```
 
-npx prisma generate
-npx prisma migrate dev
+ou para ser mais rápido
+
+```bash 
+npm run prisma:up
+```
+
+para subir o servidor:
+```bash
+#execute esse comando dentro da pasta api/
+npm run dev
+```
+
+abra outro terminal na pasta raiz
+```bash
+cd web/
+```
+
+```bash
+#certifique-se de executar esse comando dentro da pasta web/
+npm run dev
+```
 
 Isso deve configurar e iniciar o Prisma dentro do seu ambiente de desenvolvimento.
+
+Acesse em seu Navegador
+
+http://localHost:5173/
+
+Login:
+
+usuário: Rafael-orpen
+senha: #RichardOrpen2024
+
 
 Certifique-se de seguir todas as etapas acima para configurar corretamente o ambiente para o seu projeto Challenge Whatsapp Web.
