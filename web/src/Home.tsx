@@ -7,6 +7,7 @@ import { useAuthUser } from 'react-auth-kit'
 import { AuthStateUserObject } from 'react-auth-kit/dist/types'
 import { getChatByUserId } from './Service/chatRequest'
 import ChatField from './Components/chat/ChatField'
+import { TSeparatedDialogs, useChat } from './Context/ChatProvider'
 
 
 interface IUserAuth {
@@ -14,7 +15,9 @@ interface IUserAuth {
   firstName: string
 }
 export default function Home() {
-  const [chats, setChats] = useState<IChat[]>([])
+  const [chats, setChats] = useState<TSeparatedDialogs>({})
+  const [chats2, setChats2] = useState<IChat[]>([])
+  const {handleChat} = useChat()
   // const [isCHat, setIsMessage] =useState<boolean>(false)
   let user: IUserAuth = {
     id: 0,
@@ -32,12 +35,15 @@ export default function Home() {
   
   useEffect(() => {
     if(user.id){
-
+      
       const messageNotificationsGroup = async () => {
         try {
           const fetchChats = await getChatByUserId(user.id)
-          console.log(fetchChats)
-          setChats(fetchChats)
+          const test = handleChat({chats: fetchChats, userId: user.id })
+          
+          setChats2(fetchChats)
+          setChats(test)
+          
         } catch(err) {
           console.log(err)
         }
@@ -58,7 +64,7 @@ export default function Home() {
            (
             <ChatField 
               userId={user.id}
-              chats={chats}
+              chats={chats2}
             />
           )}
         </main>
