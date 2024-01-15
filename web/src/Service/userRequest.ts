@@ -5,3 +5,8 @@ export const getOtherUserById = async (id: number) => {
   const { data } = await api.get(`/user/other-user/${id}`) 
   return data;
 };
+
+export const getAllUsers = async () => {
+  const { data } = await api.get('/user') 
+  return data
+}
