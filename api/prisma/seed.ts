@@ -91,60 +91,54 @@ const chats = [
     recipientId: 1,
     message: 'Obrigado pela oportunidade e até lá!',
   },
-  // {
-  //   id: 8,  
-  //   authorId: 3,
-  //   recipientId: 4,
-  //   message: 'Oi Richard! Como você está?',
-  // },
-  // {
-  //   id: 9,  
-  //   authorId: 4,
-  //   recipientId: 3,
-  //   message: 'Tenho uma ótima notícia! Estamos recrutando para uma posição na Orpen e pensei em você. Que tal uma entrevista para discutirmos mais sobre a oportunidade?',
-  // },
-  // {
-  //   id: 10,  
-  //   authorId: 3,
-  //   recipientId: 4,
-  //   message: 'Olá Rafael! Estou bem, obrigado. Isso soa incrível! Estou interessado. Quando podemos agendar a entrevista?',
-  // },
-  // {
-  //   id: 11,  
-  //   authorId: 3,
-  //   recipientId: 4,
-  //   message: 'Mal posso esperar para discutir mais sobre a oportunidade na Orpen.',
-  // },
-  // {
-  //   id: 12,  
-  //   authorId: 4,
-  //   recipientId: 3,
-  //   message: 'Perfeito, Richard! Podemos marcar a entrevista para amanhã às 13h. Está bom para você este horário?',
-  // },
-  // {
-  //   id: 13,  
-  //   authorId: 3,
-  //   recipientId: 4,
-  //   message: 'Ótimo, Rafael! O horário está perfeito.',
-  // },
-  // {
-  //   id: 14,  
-  //   authorId: 3,
-  //   recipientId: 4,
-  //   message: 'Obrigado pela oportunidade e até lá!',
-  // },
-  // {
-  //   id: 15,  
-  //   authorId: 4,
-  //   recipientId: 3,
-  //   message: 'Ótimo, Rafael! O horário está perfeito.',
-  // },
-  // {
-  //   id: 16,  
-  //   authorId: 4,
-  //   recipientId: 3,
-  //   message: 'Obrigado pela oportunidade e até lá!',
-  // },
+  {
+    id: 8,
+    authorId: 1,
+    recipientId: 3,
+    message: 'Estou indo bem. O que você anda fazendo?',
+  },
+  {
+    id: 9,
+    authorId: 3,
+    recipientId: 1,
+    message: 'Aproveitando o tempo livre para alguns projetos pessoais. E você?',
+  },
+  {
+    id: 10,
+    authorId: 1,
+    recipientId: 3,
+    message: 'Também focado em alguns projetos. Vamos marcar algo para nos encontrarmos!',
+  },
+  {
+    id: 11,
+    authorId: 1,
+    recipientId: 4,
+    message: 'Oi Maicon! Como você está?',
+  },
+  {
+    id: 12,
+    authorId: 4,
+    recipientId: 1,
+    message: 'Oi Rafael! Estou bem, e você?',
+  },
+  {
+    id: 13,
+    authorId: 1,
+    recipientId: 4,
+    message: 'Estou ótimo. O que tem feito recentemente?',
+  },
+  {
+    id: 14,
+    authorId: 4,
+    recipientId: 1,
+    message: 'Trabalhando bastante. E você, como tem passado seu tempo?',
+  },
+  {
+    id: 15,
+    authorId: 1,
+    recipientId: 4,
+    message: 'Também trabalhando bastante. Vamos marcar algo para nos encontrarmos em breve!',
+  },
 ] 
 
 async function seedChats() {
