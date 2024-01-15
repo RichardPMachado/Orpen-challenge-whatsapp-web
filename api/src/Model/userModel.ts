@@ -11,7 +11,16 @@ export async function getUserById(id: number) {
 
 export async function getAllUsers() {
   // _RPM
-  const data = await prisma.user.findMany()
+  const data = await prisma.user.findMany({
+    where: {},
+    select: {
+      id: true,
+      firstName:true,
+      nickName: true,
+      password: false,
+
+    }
+  })
   console.log(data, "model")
   return data
 }

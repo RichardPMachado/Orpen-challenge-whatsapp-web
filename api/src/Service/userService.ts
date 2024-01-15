@@ -16,9 +16,10 @@ export async function getUserById(id: number) {
     throw new Error('deu ruim')
 }
 
-export async function getAllUsers() {
+export async function getAllUsers(): Promise<ILoginResponse[]> {
   // _RPM
-  return await UserModel.getAllUsers()
+  const data = await UserModel.getAllUsers()
+  return data
 }
 
 export async function login(loginUser: { nickName: string, password: string}): Promise<ILoginResponse & IToken> {
