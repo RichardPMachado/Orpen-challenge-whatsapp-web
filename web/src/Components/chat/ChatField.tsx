@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react"
 import { IUser } from '../../Interfaces/IUser';
-// import { getOtherUserById } from "../../Service/userRequest";
 import * as Message from "./Message";
 import Footer from "./Footer";
 import HeaderChat from "./HeaderChat";
 import { useChat } from "../../Context/ChatProvider";
 import { useAuthUser } from "react-auth-kit";
-// import Context from "../Context/Context";
 
 export default function ChatField() {
-  const {isChat, chatMessages} = useChat()
+  const {isChat, chatMessages, handleIsChat} = useChat()
   const [otherUser, setOtherUser] = useState<IUser>()
 
   const auth = useAuthUser()
   const user = auth()
 
   useEffect(() => {
+    handleIsChat(false)
     if(chatMessages && user) { 
       setOtherUser({id: chatMessages.recipientId, firstName: chatMessages.recipient})
     }
@@ -27,8 +26,12 @@ export default function ChatField() {
         : <section className="row-start-1 bg-[#EEEDFF] rounded-tr-md" />
       }
       <section className="row-span-10 bg-[#dedee0] p-2">
-        {
-        isChat && chatMessages && chatMessages.messages.sort((a,b) => a.id - b.id).map(chat => 
+        { !isChat ? <section className='h-full flex flex-col justify-center items-center'>
+            <h1 className='flex justify-center font-extrabold text-6xl text-[#5D80B4] transition duration-300 hover:scale-105'>#RichardOrpen2024</h1>
+            <h2 className='flex justify-center font-extrabold text-6xl text-[#7727B3] transition duration-300 hover:scale-105'>Challenge</h2>
+            <h2 className='flex justify-center font-extrabold text-6xl text-[#bb29af] transition duration-300 hover:scale-105'>WhatsApp Web</h2>
+        </section> 
+        : chatMessages && chatMessages.messages.sort((a,b) => a.id - b.id).map(chat => 
           chat.authorId !== otherUser?.id ?
             (
               <div key={`my-message-${chat.id}`} className="flex justify-end mr-20">
