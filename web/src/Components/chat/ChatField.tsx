@@ -22,8 +22,10 @@ export default function ChatField() {
   },[chatMessages, user])
 
   return (
-    <div className="grid grid-rows-12 grid-flow-row w-full h-full bg-red-400">
-      { otherUser?.firstName && <HeaderChat letter={otherUser.firstName[0]} userName={otherUser.firstName} /> }
+    <div className="grid grid-rows-12 grid-flow-row w-full h-full">
+      { otherUser?.firstName ? <HeaderChat letter={otherUser.firstName[0]} userName={otherUser.firstName} />
+        : <section className="row-start-1 bg-[#EEEDFF] rounded-tr-md" />
+      }
       <section className="row-span-10 bg-[#dedee0] p-2">
         {
         isChat && chatMessages && chatMessages.messages.sort((a,b) => a.id - b.id).map(chat => 
@@ -40,8 +42,6 @@ export default function ChatField() {
             )
           )
         }
-       
-
       </section>
       <Footer />
     </div>
