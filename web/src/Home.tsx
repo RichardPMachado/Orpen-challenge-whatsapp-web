@@ -1,6 +1,5 @@
 import MessageNotification from './Components/aside/MessageNotification'
 import Header from './Components/aside/Header'
-import { IChat } from './Interfaces/IChat'
 import { useEffect, useState } from 'react'
 import Filter from './Components/aside/Filter'
 import { useAuthUser } from 'react-auth-kit'
@@ -16,7 +15,6 @@ interface IUserAuth {
 }
 export default function Home() {
   const [chats, setChats] = useState<TSeparatedDialogs>({})
-  const [chats2, setChats2] = useState<IChat[]>([])
   const {handleChat} = useChat()
   // const [isCHat, setIsMessage] =useState<boolean>(false)
   let user: IUserAuth = {
@@ -41,7 +39,6 @@ export default function Home() {
           const fetchChats = await getChatByUserId(user.id)
           const test = handleChat({chats: fetchChats, userId: user.id })
           
-          setChats2(fetchChats)
           setChats(test)
           
         } catch(err) {
@@ -62,10 +59,7 @@ export default function Home() {
         <main className="col-span-3">
           {
            (
-            <ChatField 
-              userId={user.id}
-              chats={chats2}
-            />
+            <ChatField />
           )}
         </main>
       </div>
