@@ -33,7 +33,7 @@ export default function MessageNotification(props: TMessageNotification) {
   useEffect(() => {
     if(user) {
       
-      const test = async () => {
+      const fetchUsers = async () => {
          try {        
           const users:ILoginResponse[] = await getAllUsers()
          console.log('users', users);
@@ -58,7 +58,7 @@ export default function MessageNotification(props: TMessageNotification) {
           console.log(err);
         }
       }
-       test()
+       fetchUsers()
 
       }
     
