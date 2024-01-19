@@ -33,7 +33,7 @@ export default function MessageNotification(props: TMessageNotification) {
   useEffect(() => {
     if(user) {
       
-      const test = async () => {
+      const fetchUsers = async () => {
          try {        
           const users:ILoginResponse[] = await getAllUsers()
          console.log('users', users);
@@ -58,7 +58,7 @@ export default function MessageNotification(props: TMessageNotification) {
           console.log(err);
         }
       }
-       test()
+       fetchUsers()
 
       }
     
@@ -76,7 +76,7 @@ export default function MessageNotification(props: TMessageNotification) {
               recipient: cN.recipient,
             })} 
             key={cN.id}
-            className="transition duration-300 hover:bg-slate-300 grid grid-cols-5 w-full my-1 h-16 bg-[#e6e6e7] border-y-1 border-slate-400"
+            className="transition duration-300 rounded-lg focus:text-[#EEEDFF] focus:bg-gradient-to-tr from-[#7727B3] to-[#311942] hover:bg-[#dfdfdf] grid grid-cols-5 w-full my-1 h-16 bg-[#e6e6e7] border-y-1 border-slate-400"
           >
             <div className="col-span-1 grid place-items-center place-content-center h-16">
               <span className='p-3 w-10 h-10 font-bold bg-[#7727B3] rounded-full text-white' >{cN.recipient[0]}</span>
